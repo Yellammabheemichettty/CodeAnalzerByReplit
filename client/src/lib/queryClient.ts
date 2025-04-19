@@ -48,10 +48,16 @@ export const queryClient = new QueryClient({
       refetchInterval: false,
       refetchOnWindowFocus: false,
       staleTime: Infinity,
-      retry: false,
+      retry: 1,
+      onError: (error) => {
+        console.error('Query error:', error);
+      }
     },
     mutations: {
-      retry: false,
+      retry: 1,
+      onError: (error) => {
+        console.error('Mutation error:', error);
+      }
     },
   },
 });
