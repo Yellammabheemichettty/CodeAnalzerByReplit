@@ -1,4 +1,4 @@
-import type { CodeImprovementResponse } from '@shared/schema';
+import type { CodeImprovementResponse } from '../../lib/types';
 import { Check } from 'lucide-react';
 
 interface SuggestedImprovementsProps {

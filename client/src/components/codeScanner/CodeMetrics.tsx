@@ -1,4 +1,4 @@
-import type { CodeMetricsResponse } from '@shared/schema';
+import type { CodeMetricsResponse } from '../../lib/types';
 import { getMaintainabilityColorClass } from '../../lib/codeAnalysis';
 
 interface CodeMetricsProps {

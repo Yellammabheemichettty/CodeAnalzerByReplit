@@ -1,4 +1,4 @@
-import type { CodeAnalysisResponse } from '@shared/schema';
+import type { CodeAnalysisResponse } from '../../lib/types';
 import PotentialIssues from './PotentialIssues';
 import SuggestedImprovements from './SuggestedImprovements';
 import CodeMetrics from './CodeMetrics';

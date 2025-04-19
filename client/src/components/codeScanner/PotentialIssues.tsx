@@ -1,4 +1,4 @@
-import type { CodeIssueResponse } from '@shared/schema';
+import type { CodeIssueResponse } from '../../lib/types';
 import { getIssueSeverityClass } from '../../lib/codeAnalysis';
 import { AlertTriangle, CircleX, AlertCircle } from 'lucide-react';
 

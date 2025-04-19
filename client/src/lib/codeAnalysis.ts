@@ -5,7 +5,7 @@ import type {
   CodeIssueResponse, 
   CodeImprovementResponse, 
   CodeMetricsResponse 
-} from "@shared/schema";
+} from "./types";
 
 /**
  * Analyzes code using the backend API
