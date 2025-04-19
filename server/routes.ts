@@ -8,7 +8,7 @@ import {
   insertCodeImprovementSchema 
 } from "@shared/schema";
 import { detectLanguage } from "./services/languageDetectionService";
-import { analyzeCode } from "./services/codeAnalysisService";
+import { CodeAnalysisService } from "./services/codeAnalysisService";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API route for analyzing code
@@ -24,7 +24,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const detectedLanguage = language || await detectLanguage(code);
       
       // Analyze the code
-      const analysis = await analyzeCode(code, detectedLanguage);
+      const codeAnalysisService = new CodeAnalysisService();
+      const analysis = await codeAnalysisService.analyzeCode(code, detectedLanguage);
       
       // Save analysis to storage if needed
       // const insertedAnalysis = await storage.createCodeAnalysis({
