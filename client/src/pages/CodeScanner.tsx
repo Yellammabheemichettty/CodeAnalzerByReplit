@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Card } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Button } from '../components/ui/button';
@@ -25,7 +25,7 @@ export default function CodeScanner() {
       }
       const lines = code.split('\n');
       const functionMatches = code.match(/function\s+\w+\s*\(|\bdef\s+\w+\s*\(|\bfunc\s+\w+\s*\(|\bpublic\s+\w+\s+\w+\s*\(/g);
-      
+
       return {
         language: { name: language === 'auto-detect' ? 'unknown' : language, confidence: 0.8 },
         description: `This code contains ${lines.length} lines and ${functionMatches?.length || 0} detected functions.`,
@@ -81,7 +81,7 @@ export default function CodeScanner() {
         'css': 'css',
         'sql': 'sql',
       };
-      
+
       if (extension in extensionMap) {
         setLanguage(extensionMap[extension]);
       }
