@@ -4,9 +4,8 @@ import CodeScanner from './pages/CodeScanner'
 import BatchAnalyzer from './pages/BatchAnalyzer'
 import History from './pages/History'
 import NotFound from './pages/not-found'
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-const queryClient = new QueryClient();
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
 
 export default function App() {
   return (
