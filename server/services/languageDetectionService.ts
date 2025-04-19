@@ -127,11 +127,16 @@ const languagePatterns: Record<string, RegExp[]> = {
     /\bcolor\s*:/i,
   ],
   sql: [
-    /\bSELECT\s+\w+\s+FROM\s+\w+/i,
+    /\bSELECT\s+[\w\*]+\s+FROM\s+\w+/i,
     /\bINSERT\s+INTO\s+\w+/i,
     /\bUPDATE\s+\w+\s+SET\s+/i,
     /\bDELETE\s+FROM\s+\w+/i,
     /\bCREATE\s+TABLE\s+\w+/i,
+    /\bALTER\s+TABLE\s+\w+/i,
+    /\bDROP\s+TABLE\s+\w+/i,
+    /\bWHERE\s+\w+/i,
+    /\bGROUP\s+BY\s+\w+/i,
+    /\bORDER\s+BY\s+\w+/i,
   ],
 };
 
