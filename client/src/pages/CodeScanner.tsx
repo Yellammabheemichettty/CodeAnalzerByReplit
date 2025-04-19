@@ -9,7 +9,7 @@ import FileUpload from '../components/codeScanner/FileUpload';
 import LanguageSelector from '../components/codeScanner/LanguageSelector';
 import AnalysisResults from '../components/codeScanner/AnalysisResults';
 import { analyzeCode } from '../lib/codeAnalysis';
-import { CodeAnalysisResponse } from '../../shared/schema';
+import { CodeAnalysisResponse } from '@shared/schema';
 import { useToast } from '../hooks/use-toast';
 
 export default function CodeScanner() {
