@@ -1,5 +1,5 @@
 import { apiRequest } from "./queryClient";
-import { 
+import type { 
   CodeAnalysisResponse, 
   Language, 
   CodeIssueResponse, 

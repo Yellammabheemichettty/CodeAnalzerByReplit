@@ -1,5 +1,5 @@
-import { CodeMetricsResponse } from '@shared/schema';
-import { getMaintainabilityColorClass } from '@/lib/codeAnalysis';
+import type { CodeMetricsResponse } from '@shared/schema';
+import { getMaintainabilityColorClass } from '../../lib/codeAnalysis';
 
 interface CodeMetricsProps {
   metrics: CodeMetricsResponse;

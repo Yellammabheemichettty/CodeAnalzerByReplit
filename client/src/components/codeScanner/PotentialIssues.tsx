@@ -1,5 +1,5 @@
-import { CodeIssueResponse } from '@shared/schema';
-import { getIssueSeverityClass } from '@/lib/codeAnalysis';
+import type { CodeIssueResponse } from '@shared/schema';
+import { getIssueSeverityClass } from '../../lib/codeAnalysis';
 import { AlertTriangle, CircleX, AlertCircle } from 'lucide-react';
 
 interface PotentialIssuesProps {

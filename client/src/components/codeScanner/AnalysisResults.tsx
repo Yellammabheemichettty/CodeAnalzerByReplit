@@ -1,4 +1,4 @@
-import { CodeAnalysisResponse } from '@shared/schema';
+import type { CodeAnalysisResponse } from '@shared/schema';
 import PotentialIssues from './PotentialIssues';
 import SuggestedImprovements from './SuggestedImprovements';
 import CodeMetrics from './CodeMetrics';
@@ -42,11 +42,21 @@ export default function AnalysisResults({ result, isLoading }: AnalysisResultsPr
         <div className="flex items-center">
           <div className="bg-blue-100 text-blue-800 text-lg font-medium py-1 px-4 rounded-md flex items-center">
             <CheckCircle className="h-5 w-5 mr-2" />
-            {typeof result.language.name === 'string' 
-              ? result.language.name.charAt(0).toUpperCase() + result.language.name.slice(1)
-              : typeof result.language.name === 'object' && result.language.name && 'name' in result.language.name
-                ? String(result.language.name.name).charAt(0).toUpperCase() + String(result.language.name.name).slice(1)
-                : 'Unknown'}
+            {(() => {
+              // Extract the language name safely
+              let langName = 'Unknown';
+              if (typeof result.language.name === 'string') {
+                langName = result.language.name;
+              } else if (result.language.name && typeof result.language.name === 'object') {
+                // Handle nested name property if it exists
+                const nameObj = result.language.name as any;
+                if (nameObj && typeof nameObj.name === 'string') {
+                  langName = nameObj.name;
+                }
+              }
+              // Capitalize first letter
+              return langName.charAt(0).toUpperCase() + langName.slice(1);
+            })()}
           </div>
           <div className="ml-3 text-sm text-gray-500">
             Confidence: {Math.round((result.language.confidence || 0) * 100)}%
