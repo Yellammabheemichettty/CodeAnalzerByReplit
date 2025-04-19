@@ -1,4 +1,4 @@
-import { Language } from "@shared/schema";
+import { Language } from "./types";
 
 /**
  * Client-side language detection as fallback when API is unavailable
