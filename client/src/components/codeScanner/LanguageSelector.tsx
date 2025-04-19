@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { getSupportedLanguages } from '@/lib/codeAnalysis';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { Label } from "../ui/label";
+import { getSupportedLanguages } from '../../lib/codeAnalysis';
 
 interface LanguageSelectorProps {
   value: string;

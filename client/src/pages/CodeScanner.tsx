@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { Card } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
+import { Card } from '../components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { Button } from '../components/ui/button';
 import { Search } from 'lucide-react';
-import CodeEditor from '@/components/codeScanner/CodeEditor';
-import FileUpload from '@/components/codeScanner/FileUpload';
-import LanguageSelector from '@/components/codeScanner/LanguageSelector';
-import AnalysisResults from '@/components/codeScanner/AnalysisResults';
-import { analyzeCode } from '@/lib/codeAnalysis';
-import { CodeAnalysisResponse } from '@shared/schema';
-import { useToast } from '@/hooks/use-toast';
+import CodeEditor from '../components/codeScanner/CodeEditor';
+import FileUpload from '../components/codeScanner/FileUpload';
+import LanguageSelector from '../components/codeScanner/LanguageSelector';
+import AnalysisResults from '../components/codeScanner/AnalysisResults';
+import { analyzeCode } from '../lib/codeAnalysis';
+import { CodeAnalysisResponse } from '../../shared/schema';
+import { useToast } from '../hooks/use-toast';
 
 export default function CodeScanner() {
   const [code, setCode] = useState<string>('');
