@@ -15,18 +15,3 @@ This application analyzes batches of code and provides language detection and fu
 3. Start the application with Vite:
    ```bash
    npm run dev
-
-### Final Steps
-
-1. **Save the File**: Make sure to save your changes after adding the content.
-2. **Stage, Commit, and Push (optional)**: If you're using Git, you can stage, commit, and push the new `README.md` file as follows in the Shell:
-
-```bash
-# Stage the README file
-git add README.md
-
-# Commit the changes
-git commit -m "Created README.md with project details"
-
-# Push the changes to the remote repository
-git push origin main  # Replace 'main' if your branch name is different
