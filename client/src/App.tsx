@@ -1,43 +1,17 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "./components/ui/toaster";
-import { TooltipProvider } from "./components/ui/tooltip";
-import NotFound from "./pages/not-found";
-import CodeScanner from "./pages/CodeScanner";
-import BatchAnalyzer from "./pages/BatchAnalyzer";
-import History from "./pages/History";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import React from 'react'
+import { Route } from 'wouter'
+import CodeScanner from './pages/CodeScanner'
+import BatchAnalyzer from './pages/BatchAnalyzer'
+import History from './pages/History'
+import NotFound from './pages/not-found'
 
-function Router() {
+export default function App() {
   return (
-    <Switch>
+    <div className="min-h-screen bg-background">
       <Route path="/" component={CodeScanner} />
       <Route path="/batch" component={BatchAnalyzer} />
       <Route path="/history" component={History} />
-      <Route component={NotFound} />
-    </Switch>
-  );
+      <Route path="/:rest*" component={NotFound} />
+    </div>
+  )
 }
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <Router />
-            </div>
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-}
-
-export default App;
