@@ -111,12 +111,27 @@ ${code}
     const lines = code.split('\n');
     const functionMatches = code.match(/function\s+\w+\s*\(|\bdef\s+\w+\s*\(|\bfunc\s+\w+\s*\(|\bpublic\s+\w+\s+\w+\s*\(/g);
     
-    // Return minimal analysis
+    // Return more detailed fallback analysis
     return {
       language: { name: language, confidence: 0.8 },
-      description: "This code appears to be written in " + language + ". Unable to analyze further due to API error.",
-      issues: [],
-      improvements: [],
+      description: "This code appears to be written in " + language + ". I can provide basic metrics, but detailed analysis requires a valid API key with sufficient quota.",
+      issues: [
+        {
+          type: "warning",
+          message: "API quota exceeded. Analysis limited to basic metrics.",
+          severity: "medium"
+        }
+      ],
+      improvements: [
+        {
+          title: "Provide valid API key",
+          description: "For detailed code analysis, please update the OPENAI_API_KEY environment variable with a valid key that has sufficient quota."
+        },
+        {
+          title: "Consider local analysis",
+          description: "For basic linting and code quality checks, consider using local tools like ESLint, Pylint, or other language-specific analyzers."
+        }
+      ],
       metrics: {
         linesOfCode: lines.length,
         functions: functionMatches ? functionMatches.length : 0,

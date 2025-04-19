@@ -42,10 +42,14 @@ export default function AnalysisResults({ result, isLoading }: AnalysisResultsPr
         <div className="flex items-center">
           <div className="bg-blue-100 text-blue-800 text-lg font-medium py-1 px-4 rounded-md flex items-center">
             <CheckCircle className="h-5 w-5 mr-2" />
-            {result.language.name.charAt(0).toUpperCase() + result.language.name.slice(1)}
+            {typeof result.language.name === 'string' 
+              ? result.language.name.charAt(0).toUpperCase() + result.language.name.slice(1)
+              : typeof result.language.name === 'object' && result.language.name && 'name' in result.language.name
+                ? String(result.language.name.name).charAt(0).toUpperCase() + String(result.language.name.name).slice(1)
+                : 'Unknown'}
           </div>
           <div className="ml-3 text-sm text-gray-500">
-            Confidence: {Math.round(result.language.confidence * 100)}%
+            Confidence: {Math.round((result.language.confidence || 0) * 100)}%
           </div>
         </div>
       </div>
